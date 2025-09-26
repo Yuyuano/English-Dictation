@@ -1,0 +1,26 @@
+# ======================
+#  GitHub Linguist 规则
+# ======================
+
+# ① 强制把 .py 识别为 Python（保险）
+*.py linguist-language=Python
+
+# ② 把文档类文件标记为 "documentation"，不计入统计
+*.html linguist-documentation
+*.css  linguist-documentation
+*.js   linguist-documentation
+*.tex  linguist-documentation
+*.pdf  linguist-documentation
+*.png  linguist-documentation
+*.jpg  linguist-documentation
+*.gif  linguist-documentation
+*.svg  linguist-documentation
+
+# ③ 若你有 docs/ 、static/ 等文件夹，整目录忽略
+docs/**        linguist-documentation
+static/**      linguist-documentation
+assets/**      linguist-documentation
+
+# ④ 第三方库（vendored）也不计入
+vendor/**      linguist-vendored
+lib/**         linguist-vendored
