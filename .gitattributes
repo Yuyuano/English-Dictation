@@ -1,37 +1,46 @@
-# ======================
-#  GitHub Linguist 规则
-# ======================
+# -------------- 语言识别 --------------
+# 强制让 GitHub Linguist 把 .py 当作 Python
+*.py    linguist-language=Python
+# Jupyter 也按 Python 统计
+*.ipynb linguist-language=Python
 
-# ① 强制把 .py 识别为 Python（保险）
-*.py linguist-language=Python
+# -------------- 文本/二进制 --------------
+# 显式声明常见二进制文件，避免被当成文本
+*.pkl   binary
+*.pickle binary
+*.pth   binary
+*.pt    binary
+*.h5    binary
+*.hdf5  binary
+*.model binary
+*.onnx  binary
+*.pb    binary
+*.zip   binary
+*.gz    binary
+*.tar   binary
+*.7z    binary
+*.rar   binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.bmp   binary
+*.tif   binary
+*.tiff  binary
+*.pdf   binary
+*.doc   binary
+*.docx  binary
+*.xls   binary
+*.xlsx  binary
+*.ppt   binary
+*.pptx  binary
 
-# ② 把文档类文件标记为 "documentation"，不计入统计
-*.html linguist-documentation
-*.css  linguist-documentation
-*.js   linguist-documentation
-*.tex  linguist-documentation
-*.pdf  linguist-documentation
-*.png  linguist-documentation
-*.jpg  linguist-documentation
-*.gif  linguist-documentation
-*.svg  linguist-documentation
-
-# ③ 若你有 docs/ 、static/ 等文件夹，整目录忽略
-docs/**        linguist-documentation
-static/**      linguist-documentation
-assets/**      linguist-documentation
-
-# ④ 第三方库（vendored）也不计入
-vendor/**      linguist-vendored
-lib/**         linguist-vendored
-# 强制识别 Python
-*.py linguist-language=Python
-
-# 文档类不计入
-*.html linguist-documentation
-*.tex linguist-vendored   # ← 关键：TeX 既不算文档，也不算代码
-*.css linguist-documentation
-*.js linguist-documentation
-
-# 目录忽略
-docs/** linguist-vendored
+# -------------- 换行符 --------------
+# 自动处理换行符：仓库里始终 LF，Windows 检出 CRLF
+* text=auto eol=lf
+#  Windows 批处理需要 CRLF
+*.bat   text eol=crlf
+*.cmd   text eol=crlf
+# Linux/mac 脚本保持 LF
+*.sh    text eol=lf
