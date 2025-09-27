@@ -1,46 +1,22 @@
-# -------------- 语言识别 --------------
-# 强制让 GitHub Linguist 把 .py 当作 Python
-*.py    linguist-language=Python
-# Jupyter 也按 Python 统计
-*.ipynb linguist-language=Python
-
-# -------------- 文本/二进制 --------------
-# 显式声明常见二进制文件，避免被当成文本
-*.pkl   binary
-*.pickle binary
-*.pth   binary
-*.pt    binary
-*.h5    binary
-*.hdf5  binary
-*.model binary
-*.onnx  binary
-*.pb    binary
-*.zip   binary
-*.gz    binary
-*.tar   binary
-*.7z    binary
-*.rar   binary
-*.png   binary
-*.jpg   binary
-*.jpeg  binary
-*.gif   binary
-*.ico   binary
-*.bmp   binary
-*.tif   binary
-*.tiff  binary
-*.pdf   binary
-*.doc   binary
-*.docx  binary
-*.xls   binary
-*.xlsx  binary
-*.ppt   binary
-*.pptx  binary
-
-# -------------- 换行符 --------------
-# 自动处理换行符：仓库里始终 LF，Windows 检出 CRLF
+# --------------- 语言强制 ---------------
+**/*.py    linguist-language=Python
+**/*.ipynb linguist-language=Python
+# --------------- 二进制/大文件 ---------------
+**/*.pkl   binary
+**/*.pickle binary
+**/*.pt    binary
+**/*.pth   binary
+**/*.onnx  binary
+**/*.h5    binary
+**/*.hdf5  binary
+**/*.model binary
+**/*.zip   binary
+**/*.gz    binary
+**/*.tar   binary
+**/*.png   binary
+**/*.jpg   binary
+**/*.jpeg  binary
+**/*.gif   binary
+**/*.pdf   binary
+# --------------- 换行符 ---------------
 * text=auto eol=lf
-#  Windows 批处理需要 CRLF
-*.bat   text eol=crlf
-*.cmd   text eol=crlf
-# Linux/mac 脚本保持 LF
-*.sh    text eol=lf
